@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#f1f5f2" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="Мой комплекс" />
+  <meta name="description" content="Простой автономный комплекс упражнений два раза в день" />
+  <link rel="icon" type="image/png" href="./icons/icon.svg" />
+  <link rel="apple-touch-icon" href="./icons/icon.svg" />
+  <link rel="manifest" href="./manifest.webmanifest" />
+  <link rel="stylesheet" href="./style.css" />
+  <title>Мой комплекс</title>
+</head>
+<body>
+  <main class="app">
+    <section id="home-view" class="view" aria-label="Мой комплекс">
+      <header class="header">
+        <div class="eyebrow">ЛИЧНЫЙ КОМПЛЕКС</div>
+        <h1>Два раза <span>в день.</span></h1>
+        <p class="lead">Один комплекс. Утром и вечером. Ничего лишнего.</p>
+      </header>
+
+      <div class="date-row">
+        <div>
+          <div class="small-label">СЕГОДНЯ</div>
+          <p id="today-label" class="date-text"></p>
+        </div>
+        <div id="day-progress" class="progress-pill">0 / 2</div>
+      </div>
+
+      <div class="sessions">
+        <article class="session-card" data-slot="morning">
+          <div class="session-head">
+            <div class="session-emoji" aria-hidden="true">☀</div>
+            <div class="session-title-group"><h2>Утро</h2><p>Первое выполнение</p></div>
+            <span id="morning-status" class="status">Не выполнено</span>
+          </div>
+          <button type="button" id="morning-btn" class="primary-button">Начать комплекс <span aria-hidden="true">→</span></button>
+        </article>
+        <article class="session-card" data-slot="evening">
+          <div class="session-head">
+            <div class="session-emoji moon" aria-hidden="true">☾</div>
+            <div class="session-title-group"><h2>Вечер</h2><p>Второе выполнение</p></div>
+            <span id="evening-status" class="status">Не выполнено</span>
+          </div>
+          <button type="button" id="evening-btn" class="primary-button">Начать комплекс <span aria-hidden="true">→</span></button>
+        </article>
+      </div>
+      <p class="footnote">Отметки хранятся только на этом телефоне. Завтра появятся две новые сессии.</p>
+    </section>
+
+    <section id="workout-view" class="view hidden" aria-label="Выполнение комплекса">
+      <div class="workout-top">
+        <button type="button" class="circle-button" id="close-workout" aria-label="Вернуться к расписанию">✕</button>
+        <div class="workout-top-center"><div class="small-label" id="slot-caption">УТРО</div><div class="workout-step-counter" id="step-count">1 / 9</div></div>
+        <div class="top-spacer"></div>
+      </div>
+      <div class="timer-area">
+        <div class="timer-ring active" id="timer-ring" role="timer" aria-label="Таймер этапа">
+          <div class="timer-track" id="timer-track">
+            <div class="timer-inner">
+              <div class="countdown" id="countdown">30</div>
+              <div class="phase-instruction" id="phase-instruction">Сократить</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="phase-area">
+        <p class="next-label" id="next-label">Далее: отдых</p>
+        <div class="phase-navigation">
+          <button type="button" id="previous-phase" class="chevron-button" aria-label="Предыдущий этап">‹</button>
+          <div class="phase-names"><div class="phase-title" id="phase-title">Trembling 2</div><div class="phase-subtitle" id="phase-type">Сокращение · 30 сек.</div></div>
+          <button type="button" id="next-phase" class="chevron-button" aria-label="Следующий этап">›</button>
+        </div>
+      </div>
+      <div class="controls">
+        <button type="button" id="play-pause" class="primary-button">Пауза</button>
+        <p class="controls-caption">Время идёт только при открытом приложении</p>
+      </div>
+    </section>
+
+    <section id="finish-view" class="view hidden" aria-label="Подтверждение выполнения">
+      <div class="complete-content">
+        <div class="finish-icon" aria-hidden="true">✓</div>
+        <div class="small-label" id="finish-slot-caption">УТРО · ЗАВЕРШЕНО</div>
+        <h1>Комплекс<br/><span>завершён!</span></h1>
+        <p class="lead">Подтверди выполнение, и я сохраню отметку за сегодня.</p>
+        <button type="button" id="confirm-done" class="primary-button">✓ Выполнено</button>
+        <button type="button" id="redo-workout" class="text-button">Повторить комплекс</button>
+      </div>
+    </section>
+  </main>
+  <script src="./app.js" defer></script>
+</body>
+</html>

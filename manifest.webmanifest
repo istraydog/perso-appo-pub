@@ -1,0 +1,20 @@
+{
+  "id": "./",
+  "name": "Мой комплекс — два раза в день",
+  "short_name": "Мой комплекс",
+  "description": "Личный комплекс упражнений. Две отметки в день. Без облачных данных.",
+  "lang": "ru",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f1f5f2",
+  "theme_color": "#f1f5f2",
+  "icons": [
+    {
+      "src": "./icons/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable"
+    },
+    {
+      "src": "./icons/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable"
+    }
+  ]
+}
